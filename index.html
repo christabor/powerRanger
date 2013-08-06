@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+    <title>jQuery text resizer</title>
+    <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background: url(bg-team.jpg) no-repeat bottom right;
+        font-family: 'Play', sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        background-size: cover;
+        min-height: 1000px;
+    }
+    h2:first-of-type {
+        margin-top: 0;
+    }
+    h2 {
+        font-size: 50px;
+        background: -webkit-linear-gradient(#e3c33d, #678331);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    h2 > span {
+        font-size: 12px;
+        position: relative;
+        top:-13px;
+        border:1px solid #ccc;
+        padding: 5px 10px;
+        text-shadow: 0 0 0;
+        background: -webkit-linear-gradient(#000, #444);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    h3 {
+        margin: 2em 0;
+    }
+    p {
+        text-transform: none;
+    }
+    code {
+        text-transform: none;
+        background-color: #fff;
+        border:1px solid #145eb2;
+        color: #145eb2;
+        padding:20px;
+        border-radius: 20px;
+        font-size: 90%;
+        display: block;
+        width: 90%;
+    }
+    #demo-section {
+        margin: 3em;
+    }
+    #demo-section fieldset {
+        text-align:center;
+        border-color: #145eb2;
+        width: 60%;
+        border-radius: 10px;
+        margin: 0 auto;
+        background-color: #fff;
+    }
+    #demo-section legend {
+        font-weight:bold;
+        font-size: 120%;
+        background-color: #145eb2;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+    #demo-section label {
+        margin: 10px auto;
+        padding: 10px;
+        display: block;
+        color: #145eb2;
+    }
+    #demo-section label strong {
+        background-color: #145eb2;
+        color: #fff;
+        padding: 5px;
+        margin: 4px;
+    }
+    #demo-section input {
+        transition: all 2s linear;
+        -ms-transition: all 0.1s linear;
+        -moz-transition: all 0.1s linear;
+        -webkit-transition: all 0.1s linear;
+        border-radius: 1000px;
+        font-family: 'Play', sans-serif;
+        margin: 10px;
+        height:100px;
+        border:1px solid #ccc;
+        text-align:center;
+        width: 200px;
+        padding:10px;
+        font-size: 16px;
+    }
+    #demo-section input:focus {
+        outline: 0;
+        box-shadow: inset 0 0 10px #145eb2;
+    }
+    .row:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+    #left-side {
+        float: left;
+        width: 50%;
+    }
+    #right-side {
+        float: right;
+        width: 50%;
+    }
+    </style>
+</head>
+<body>
+    <a href="https://github.com/christabor/powerRanger"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <div id="demo-section">
+        <div id="left-side">
+            <h2>POWER <span>input</span> RANGER!</h2>
+            <p>Tired of <strong>BORING</strong> number inputs that are hard to see when the numbers are too long? Tired of numbers that are too small inside the box? Add some <strong>POWER</strong> to your inputs with <strong>POWER [input] RANGER!</strong> Works great for max/min number inputs, part of the <strong>SWEET</strong> html5 spec.</p>
+            <h3>How to use:</h3>
+            <p>Play around by adding and removing any number of items from each input box. For example, try adding 1, 99, 999, or even something over 9,000! Get crazy!</p>
+            <code>
+                // make sure to 
+                var inputs = $('#demo-section').find('input');
+                inputs.powerRangeIt();
+            </code>
+            <h3>Options</h3>
+            <p>
+                // subtracted from total font size -- adjust to your liking<br>
+                <strong>scale_factor: 12</strong><br><br>
+
+                // number of letters before resizing stops<br>
+                <strong>cutoff_length: 7</strong><br><br>
+
+                // default font size of non-resized letters<br>
+                <strong>cutoff_size: 20</strong>
+            </p>
+            <h3>Support</h3>
+            <p>Tested in <strong>Firefox 22</strong>, <strong>Chrome 28.0.1500.95</strong> and <strong>Safari 6.0.5 (8536.30.1)</strong></p>
+        </div>
+        <div id="right-side">
+            <fieldset>
+                <legend>POWERFUL facts</legend>
+                <label for="r1">Total number of current episodes created</label>
+                <input name="r1" type="number" value="745" min="10" max="2000000">
+                <br>
+                <label for="r2">The age at which you should stop watching this show</label>
+                <input name="r2" type="number" value="8.5" min="1" max="40">
+                <br>
+                <label for="r3">Total U.S dollars the movie "Mighty Morphin' Power Rangers" grossed.</label>
+                <input name="r3" type="number" value="38187431" min="0" max="1000000000">
+            </fieldset>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="jquery.powerRanger.js"></script>
+    <script type="text/javascript" defer>
+    $(document).ready(function(){
+        var inputs = $('#demo-section').find('input');
+        inputs.powerRangeIt();
+        $('body').hide().fadeIn(100, function(){
+            inputs.trigger('change');            
+        });
+    });
+    </script>
+</body>
+</html>
