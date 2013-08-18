@@ -13,24 +13,33 @@
             // subtracted from total font size -- adjust to your liking
             scale_factor: 12,
             cutoff_length: 7,
-            cutoff_size: 20
+            cutoff_size: 20,
+            scrub_nan: true
         },
         opts = $.extend(defaults, options);
 
         return this.each(function(k, elem){
             $(elem).on('change keyup', function() {
+
                 // get number values for formula
                 var width = $(this).width(),
-                font_size = parseInt($(this).css('font-size').replace('px', ''), 10),
+                _elem = $(this),
+                value = _elem.val(),
+                font_size = parseInt(_elem.css('font-size').replace('px', ''), 10),
                 char_length = $(this).val().length,
                 new_size = ((10-char_length)*10)-opts.scale_factor;
+
+                // scrub bad inputs
+                if((isNaN(value) || value === '') && opts.scrub_nan) {
+                    $(this).val('0');
+                }
 
                 if(char_length >= opts.cutoff_length) {
                     new_size = opts.cutoff_size;
                 }
 
                 // update css with calculation
-                $(elem).css('font-size', new_size+'px');
+                _elem.css('font-size', new_size+'px');
             });
         });
     };
