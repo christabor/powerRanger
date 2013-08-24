@@ -19,7 +19,7 @@
         opts = $.extend(defaults, options);
 
         return this.each(function(k, elem){
-            $(elem).on('change keyup', function() {
+            $(elem).on('change.powerRangeIt keyup.powerRangeIt', function() {
 
                 // get number values for formula
                 var width = $(this).width(),
