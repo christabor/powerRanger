@@ -1,0 +1,10 @@
+{
+	"name" : "powerRanger",
+	"version": "0.1.0",
+	"dependencies" : {
+		"jquery" : "latest"
+		},
+		"install" : {
+			"path" : "jquery.powerRanger.js"
+		}
+	}
