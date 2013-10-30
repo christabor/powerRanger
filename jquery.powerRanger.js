@@ -34,12 +34,14 @@
                     $(this).val('0');
                 }
 
+                // reset
                 if(char_length >= opts.cutoff_length) {
                     new_size = opts.cutoff_size;
                 }
 
                 // update css with calculation
-                _elem.css('font-size', new_size+'px');
+                _elem.css('font-size', new_size + 'px');
+                return;
             });
         });
     };
