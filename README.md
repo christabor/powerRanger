@@ -26,3 +26,5 @@ Tested in **Firefox 22**, **Chrome 28.0.1500.95** and **Safari 6.0.5 (8536.30.1)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/christabor/powerranger/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+### Support / donations
+![Donation badge](https://img.shields.io/gratipay/christabor.svg)
