@@ -1,10 +1,23 @@
 {
 	"name" : "powerRanger",
 	"version": "0.1.0",
+	"repository": {
+		"type": "git",
+		"url" : "https://github.com/christabor/powerRanger.git"
+	},
+	"main": "jquery.powerRanger.js",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests",
+		"demo",
+		"lib"
+	],
 	"dependencies" : {
 		"jquery" : "latest"
-		},
-		"install" : {
-			"path" : "jquery.powerRanger.js"
 		}
-	}
+		
+	
+}
